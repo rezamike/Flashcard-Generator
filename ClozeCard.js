@@ -7,19 +7,24 @@ let ClozeCard = function(text, cloze) {
     this.cloze = cloze;
 
     // Function to build the cloze.
-    this.fullText = function(cloze) {
+    this.fullText = function() {
         return cloze;
     }
 
     // Function to build partial text.
-    this.partial = function(text, cloze) {
-        return JSON.stringify(text = cloze);
+    this.partial = function() {
+
+        if (this.fullText.includes(this.cloze)) {
+            return this.fullText.replace(this.cloze, "...");
+        }
     }
 }
 
 let firstPresC = new ClozeCard("George Washington was the first president.", "George Washington");
 
-console.log(firstPresC)
+
+
+console.log(firstPresC.partial())
 
 // Export document information.
 module.exports = ClozeCard;
