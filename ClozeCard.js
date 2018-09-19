@@ -2,29 +2,21 @@
 // Build constructor for the clozecard object - use 'front' and 'back' as arguments.
 let ClozeCard = function(text, cloze) {
 
-    // Add property to the object - 'text', 'cloze', 'fullText', and 'partial'.
-    this.text = text;
+    // Add property to the object - 'text', 'cloze', and 'partial'.
     this.cloze = cloze;
-
-    // Function to build the cloze.
-    this.fullText = function() {
-        return cloze;
-    }
+    this.fullText = text;
 
     // Function to build partial text.
-    this.partial = function() {
+    this.partial = function(error) {
 
-        if (this.fullText.includes(this.cloze)) {
-            return this.fullText.replace(this.cloze, "...");
+        if (this.fullText.includes(cloze)) {
+            return this.fullText.replace(cloze, "...");
+        }
+        else {
+            console.log(error);
         }
     }
 }
-
-let firstPresC = new ClozeCard("George Washington was the first president.", "George Washington");
-
-
-
-console.log(firstPresC.partial())
 
 // Export document information.
 module.exports = ClozeCard;
