@@ -5,6 +5,7 @@ let ClozeCard = function(text, cloze) {
     // Add property to the object - 'text', 'cloze', and 'partial'.
     this.cloze = cloze;
     this.fullText = text;
+    this.value = true;
 
     // Function to build partial text.
     this.partial = function(error) {
