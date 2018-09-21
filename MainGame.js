@@ -35,7 +35,6 @@ var count = 0;
 //     });
 
 function runGame() {
-    
     if (questions[count].value) {
         x = {
             type: "input",
@@ -54,27 +53,30 @@ function runGame() {
         .prompt([
             x
         ])
-        .then(function (err, data) {
+        .then(function (data) {
 
-            if (err) throw err;
             if (data.main === questions[count].cloze.toLowerCase()) {
-                console.log("Nailed it!\n-----------------------------------------------------------")
+                console.log("\nNailed it!\n\n-----------------------------------------------------------\n")
                 score++;
             }
             else if (data.main === "") {
-                console.log("You didn't type anything, idiot...\n---------------------------------------------------------")
+                console.log("\nYou didn't type anything, idiot...\n---------------------------------------------------------\n")
             }
             else {
-                console.log("Nope!\nThe correct answer was:\n\n" + questions[count].fullText + "\n\n---------------------------------------------------\n")
+                console.log("\nNope!\nThe correct answer was:\n\n" + questions[count].fullText + "\n\n---------------------------------------------------\n")
             }
             count++;
             if (count < 10) {
                 runGame();
             }
             else {
-                console.log("---------------------------------------------------")
-                console.log("Look at you... " + score + " out of 10");
-                console.log("Thanks for playing!");
+                if (score > 5) {
+                   console.log("\nNice! " + score + " out of 10\n"); 
+                }
+                else {
+                    console.log(score + " out of 10\nWow. Well, could've been better...\n");
+                   console.log("Thanks for playing!\n---------------------------------------------------"); 
+                }
             }
         })
 }
