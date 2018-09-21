@@ -7,3 +7,6 @@ The types are partially hidden, word guess, and question/answer. These movie bas
 Please install npm request and inquirer packages for usage.
 
 Thank you, and enjoy!
+
+Video run-through:
+https://drive.google.com/file/d/11QYk-z11vVfWt9SsoizpzforxJ0mH1SE/view
