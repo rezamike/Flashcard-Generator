@@ -166,7 +166,6 @@ inquirer
                         console.log(body);
                     }
                 });
-                runGame();
                 break;
             case "Quit":
 
