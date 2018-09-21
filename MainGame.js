@@ -30,12 +30,12 @@ let questions = [
 var x;
 var count = 0;
 
-function pickCard() {
-    questions.sort(function(){return Math.floor(Math.random()*questions.length)});
-    runGame();
-}
+// questions.sort(function () {
+//         return Math.floor(Math.random() * questions.length)
+//     });
 
 function runGame() {
+    
     if (questions[count].value) {
         x = {
             type: "input",
@@ -57,7 +57,6 @@ function runGame() {
         .then(function (err, data) {
 
             if (err) throw err;
-            pickCard();
             if (data.main === questions[count].cloze.toLowerCase()) {
                 console.log("Nailed it!\n-----------------------------------------------------------")
                 score++;
