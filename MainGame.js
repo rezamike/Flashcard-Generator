@@ -55,7 +55,7 @@ function runGame() {
         ])
         .then(function (data) {
 
-            if (data.main === questions[count].cloze.toLowerCase()) {
+            if (data.main.toLowerCase() === questions[count].cloze.toLowerCase()) {
                 console.log("\nNailed it!\n\n-----------------------------------------------------------\n")
                 score++;
             }
